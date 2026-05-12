@@ -25,6 +25,8 @@ const (
 	TransactionService_DeleteTransaction_FullMethodName = "/transaction.TransactionService/DeleteTransaction"
 	TransactionService_GetBalance_FullMethodName        = "/transaction.TransactionService/GetBalance"
 	TransactionService_GetCategoryTotals_FullMethodName = "/transaction.TransactionService/GetCategoryTotals"
+	TransactionService_CreateUser_FullMethodName        = "/transaction.TransactionService/CreateUser"
+	TransactionService_GetUserByEmail_FullMethodName    = "/transaction.TransactionService/GetUserByEmail"
 )
 
 // TransactionServiceClient is the client API for TransactionService service.
@@ -37,6 +39,8 @@ type TransactionServiceClient interface {
 	DeleteTransaction(ctx context.Context, in *DeleteTransactionRequest, opts ...grpc.CallOption) (*DeleteTransactionResponse, error)
 	GetBalance(ctx context.Context, in *GetBalanceRequest, opts ...grpc.CallOption) (*GetBalanceResponse, error)
 	GetCategoryTotals(ctx context.Context, in *GetCategoryTotalsRequest, opts ...grpc.CallOption) (*GetCategoryTotalsResponse, error)
+	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
+	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*GetUserByEmailResponse, error)
 }
 
 type transactionServiceClient struct {
@@ -116,6 +120,26 @@ func (c *transactionServiceClient) GetCategoryTotals(ctx context.Context, in *Ge
 	return out, nil
 }
 
+func (c *transactionServiceClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateUserResponse)
+	err := c.cc.Invoke(ctx, TransactionService_CreateUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transactionServiceClient) GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*GetUserByEmailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserByEmailResponse)
+	err := c.cc.Invoke(ctx, TransactionService_GetUserByEmail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TransactionServiceServer is the server API for TransactionService service.
 // All implementations must embed UnimplementedTransactionServiceServer
 // for forward compatibility.
@@ -126,6 +150,8 @@ type TransactionServiceServer interface {
 	DeleteTransaction(context.Context, *DeleteTransactionRequest) (*DeleteTransactionResponse, error)
 	GetBalance(context.Context, *GetBalanceRequest) (*GetBalanceResponse, error)
 	GetCategoryTotals(context.Context, *GetCategoryTotalsRequest) (*GetCategoryTotalsResponse, error)
+	CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
+	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*GetUserByEmailResponse, error)
 	mustEmbedUnimplementedTransactionServiceServer()
 }
 
@@ -153,6 +179,12 @@ func (UnimplementedTransactionServiceServer) GetBalance(context.Context, *GetBal
 }
 func (UnimplementedTransactionServiceServer) GetCategoryTotals(context.Context, *GetCategoryTotalsRequest) (*GetCategoryTotalsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCategoryTotals not implemented")
+}
+func (UnimplementedTransactionServiceServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateUser not implemented")
+}
+func (UnimplementedTransactionServiceServer) GetUserByEmail(context.Context, *GetUserByEmailRequest) (*GetUserByEmailResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserByEmail not implemented")
 }
 func (UnimplementedTransactionServiceServer) mustEmbedUnimplementedTransactionServiceServer() {}
 func (UnimplementedTransactionServiceServer) testEmbeddedByValue()                            {}
@@ -276,6 +308,42 @@ func _TransactionService_GetCategoryTotals_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TransactionService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).CreateUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransactionService_CreateUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).CreateUser(ctx, req.(*CreateUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransactionService_GetUserByEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserByEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransactionServiceServer).GetUserByEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransactionService_GetUserByEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransactionServiceServer).GetUserByEmail(ctx, req.(*GetUserByEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TransactionService_ServiceDesc is the grpc.ServiceDesc for TransactionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -302,6 +370,14 @@ var TransactionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCategoryTotals",
 			Handler:    _TransactionService_GetCategoryTotals_Handler,
+		},
+		{
+			MethodName: "CreateUser",
+			Handler:    _TransactionService_CreateUser_Handler,
+		},
+		{
+			MethodName: "GetUserByEmail",
+			Handler:    _TransactionService_GetUserByEmail_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

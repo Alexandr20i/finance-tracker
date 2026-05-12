@@ -812,6 +812,274 @@ func (x *GetCategoryTotalsResponse) GetCategories() []*CategoryTotal {
 	return nil
 }
 
+type User struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	PasswordHash  string                 `protobuf:"bytes,3,opt,name=password_hash,json=passwordHash,proto3" json:"password_hash,omitempty"`
+	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *User) Reset() {
+	*x = User{}
+	mi := &file_transaction_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*User) ProtoMessage() {}
+
+func (x *User) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
+	return file_transaction_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *User) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *User) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *User) GetPasswordHash() string {
+	if x != nil {
+		return x.PasswordHash
+	}
+	return ""
+}
+
+func (x *User) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *User) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type CreateUserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	PasswordHash  string                 `protobuf:"bytes,2,opt,name=password_hash,json=passwordHash,proto3" json:"password_hash,omitempty"`
+	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserRequest) Reset() {
+	*x = CreateUserRequest{}
+	mi := &file_transaction_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserRequest) ProtoMessage() {}
+
+func (x *CreateUserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserRequest.ProtoReflect.Descriptor instead.
+func (*CreateUserRequest) Descriptor() ([]byte, []int) {
+	return file_transaction_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CreateUserRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *CreateUserRequest) GetPasswordHash() string {
+	if x != nil {
+		return x.PasswordHash
+	}
+	return ""
+}
+
+func (x *CreateUserRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type CreateUserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserResponse) Reset() {
+	*x = CreateUserResponse{}
+	mi := &file_transaction_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserResponse) ProtoMessage() {}
+
+func (x *CreateUserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserResponse.ProtoReflect.Descriptor instead.
+func (*CreateUserResponse) Descriptor() ([]byte, []int) {
+	return file_transaction_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CreateUserResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type GetUserByEmailRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserByEmailRequest) Reset() {
+	*x = GetUserByEmailRequest{}
+	mi := &file_transaction_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserByEmailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserByEmailRequest) ProtoMessage() {}
+
+func (x *GetUserByEmailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserByEmailRequest.ProtoReflect.Descriptor instead.
+func (*GetUserByEmailRequest) Descriptor() ([]byte, []int) {
+	return file_transaction_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetUserByEmailRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type GetUserByEmailResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserByEmailResponse) Reset() {
+	*x = GetUserByEmailResponse{}
+	mi := &file_transaction_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserByEmailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserByEmailResponse) ProtoMessage() {}
+
+func (x *GetUserByEmailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_transaction_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserByEmailResponse.ProtoReflect.Descriptor instead.
+func (*GetUserByEmailResponse) Descriptor() ([]byte, []int) {
+	return file_transaction_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetUserByEmailResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
 var File_transaction_proto protoreflect.FileDescriptor
 
 const file_transaction_proto_rawDesc = "" +
@@ -872,11 +1140,28 @@ const file_transaction_proto_rawDesc = "" +
 	"\x19GetCategoryTotalsResponse\x12:\n" +
 	"\n" +
 	"categories\x18\x01 \x03(\v2\x1a.transaction.CategoryTotalR\n" +
-	"categories**\n" +
+	"categories\"\x84\x01\n" +
+	"\x04User\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
+	"\x05email\x18\x02 \x01(\tR\x05email\x12#\n" +
+	"\rpassword_hash\x18\x03 \x01(\tR\fpasswordHash\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\"b\n" +
+	"\x11CreateUserRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12#\n" +
+	"\rpassword_hash\x18\x02 \x01(\tR\fpasswordHash\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\";\n" +
+	"\x12CreateUserResponse\x12%\n" +
+	"\x04user\x18\x01 \x01(\v2\x11.transaction.UserR\x04user\"-\n" +
+	"\x15GetUserByEmailRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\"?\n" +
+	"\x16GetUserByEmailResponse\x12%\n" +
+	"\x04user\x18\x01 \x01(\v2\x11.transaction.UserR\x04user**\n" +
 	"\x0fTransactionType\x12\n" +
 	"\n" +
 	"\x06INCOME\x10\x00\x12\v\n" +
-	"\aEXPENSE\x10\x012\xb5\x04\n" +
+	"\aEXPENSE\x10\x012\xdf\x05\n" +
 	"\x12TransactionService\x12b\n" +
 	"\x11CreateTransaction\x12%.transaction.CreateTransactionRequest\x1a&.transaction.CreateTransactionResponse\x12N\n" +
 	"\x0eGetTransaction\x12\".transaction.GetTransactionRequest\x1a\x18.transaction.Transaction\x12T\n" +
@@ -884,7 +1169,10 @@ const file_transaction_proto_rawDesc = "" +
 	"\x11DeleteTransaction\x12%.transaction.DeleteTransactionRequest\x1a&.transaction.DeleteTransactionResponse\x12M\n" +
 	"\n" +
 	"GetBalance\x12\x1e.transaction.GetBalanceRequest\x1a\x1f.transaction.GetBalanceResponse\x12b\n" +
-	"\x11GetCategoryTotals\x12%.transaction.GetCategoryTotalsRequest\x1a&.transaction.GetCategoryTotalsResponseB8Z6github.com/Alexandr20i/finance-tracker/gen/transactionb\x06proto3"
+	"\x11GetCategoryTotals\x12%.transaction.GetCategoryTotalsRequest\x1a&.transaction.GetCategoryTotalsResponse\x12M\n" +
+	"\n" +
+	"CreateUser\x12\x1e.transaction.CreateUserRequest\x1a\x1f.transaction.CreateUserResponse\x12Y\n" +
+	"\x0eGetUserByEmail\x12\".transaction.GetUserByEmailRequest\x1a#.transaction.GetUserByEmailResponseB8Z6github.com/Alexandr20i/finance-tracker/gen/transactionb\x06proto3"
 
 var (
 	file_transaction_proto_rawDescOnce sync.Once
@@ -899,7 +1187,7 @@ func file_transaction_proto_rawDescGZIP() []byte {
 }
 
 var file_transaction_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_transaction_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_transaction_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_transaction_proto_goTypes = []any{
 	(TransactionType)(0),              // 0: transaction.TransactionType
 	(*Transaction)(nil),               // 1: transaction.Transaction
@@ -914,29 +1202,40 @@ var file_transaction_proto_goTypes = []any{
 	(*CategoryTotal)(nil),             // 10: transaction.CategoryTotal
 	(*GetCategoryTotalsRequest)(nil),  // 11: transaction.GetCategoryTotalsRequest
 	(*GetCategoryTotalsResponse)(nil), // 12: transaction.GetCategoryTotalsResponse
+	(*User)(nil),                      // 13: transaction.User
+	(*CreateUserRequest)(nil),         // 14: transaction.CreateUserRequest
+	(*CreateUserResponse)(nil),        // 15: transaction.CreateUserResponse
+	(*GetUserByEmailRequest)(nil),     // 16: transaction.GetUserByEmailRequest
+	(*GetUserByEmailResponse)(nil),    // 17: transaction.GetUserByEmailResponse
 }
 var file_transaction_proto_depIdxs = []int32{
 	0,  // 0: transaction.Transaction.type:type_name -> transaction.TransactionType
 	0,  // 1: transaction.CreateTransactionRequest.type:type_name -> transaction.TransactionType
 	1,  // 2: transaction.CreateTransactionResponse.transaction:type_name -> transaction.Transaction
 	10, // 3: transaction.GetCategoryTotalsResponse.categories:type_name -> transaction.CategoryTotal
-	2,  // 4: transaction.TransactionService.CreateTransaction:input_type -> transaction.CreateTransactionRequest
-	4,  // 5: transaction.TransactionService.GetTransaction:input_type -> transaction.GetTransactionRequest
-	5,  // 6: transaction.TransactionService.ListTransactions:input_type -> transaction.ListTransactionsRequest
-	6,  // 7: transaction.TransactionService.DeleteTransaction:input_type -> transaction.DeleteTransactionRequest
-	8,  // 8: transaction.TransactionService.GetBalance:input_type -> transaction.GetBalanceRequest
-	11, // 9: transaction.TransactionService.GetCategoryTotals:input_type -> transaction.GetCategoryTotalsRequest
-	3,  // 10: transaction.TransactionService.CreateTransaction:output_type -> transaction.CreateTransactionResponse
-	1,  // 11: transaction.TransactionService.GetTransaction:output_type -> transaction.Transaction
-	1,  // 12: transaction.TransactionService.ListTransactions:output_type -> transaction.Transaction
-	7,  // 13: transaction.TransactionService.DeleteTransaction:output_type -> transaction.DeleteTransactionResponse
-	9,  // 14: transaction.TransactionService.GetBalance:output_type -> transaction.GetBalanceResponse
-	12, // 15: transaction.TransactionService.GetCategoryTotals:output_type -> transaction.GetCategoryTotalsResponse
-	10, // [10:16] is the sub-list for method output_type
-	4,  // [4:10] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	13, // 4: transaction.CreateUserResponse.user:type_name -> transaction.User
+	13, // 5: transaction.GetUserByEmailResponse.user:type_name -> transaction.User
+	2,  // 6: transaction.TransactionService.CreateTransaction:input_type -> transaction.CreateTransactionRequest
+	4,  // 7: transaction.TransactionService.GetTransaction:input_type -> transaction.GetTransactionRequest
+	5,  // 8: transaction.TransactionService.ListTransactions:input_type -> transaction.ListTransactionsRequest
+	6,  // 9: transaction.TransactionService.DeleteTransaction:input_type -> transaction.DeleteTransactionRequest
+	8,  // 10: transaction.TransactionService.GetBalance:input_type -> transaction.GetBalanceRequest
+	11, // 11: transaction.TransactionService.GetCategoryTotals:input_type -> transaction.GetCategoryTotalsRequest
+	14, // 12: transaction.TransactionService.CreateUser:input_type -> transaction.CreateUserRequest
+	16, // 13: transaction.TransactionService.GetUserByEmail:input_type -> transaction.GetUserByEmailRequest
+	3,  // 14: transaction.TransactionService.CreateTransaction:output_type -> transaction.CreateTransactionResponse
+	1,  // 15: transaction.TransactionService.GetTransaction:output_type -> transaction.Transaction
+	1,  // 16: transaction.TransactionService.ListTransactions:output_type -> transaction.Transaction
+	7,  // 17: transaction.TransactionService.DeleteTransaction:output_type -> transaction.DeleteTransactionResponse
+	9,  // 18: transaction.TransactionService.GetBalance:output_type -> transaction.GetBalanceResponse
+	12, // 19: transaction.TransactionService.GetCategoryTotals:output_type -> transaction.GetCategoryTotalsResponse
+	15, // 20: transaction.TransactionService.CreateUser:output_type -> transaction.CreateUserResponse
+	17, // 21: transaction.TransactionService.GetUserByEmail:output_type -> transaction.GetUserByEmailResponse
+	14, // [14:22] is the sub-list for method output_type
+	6,  // [6:14] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_transaction_proto_init() }
@@ -950,7 +1249,7 @@ func file_transaction_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_transaction_proto_rawDesc), len(file_transaction_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   12,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

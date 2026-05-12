@@ -206,3 +206,46 @@ func toProto(t *repository.Transaction) *pb.Transaction {
 		CreatedAt:   t.CreatedAt.Format(time.RFC3339),
 	}
 }
+
+// CreateUser — создаёт пользователя (вызывается только Gateway)
+func (s *Server) CreateUser(
+	ctx context.Context,
+	req *pb.CreateUserRequest,
+) (*pb.CreateUserResponse, error) {
+
+	u, err := s.userRepo.Create(req.Email, req.PasswordHash, req.Name)
+	if err != nil {
+		return nil, status.Error(codes.AlreadyExists, "email already registered")
+	}
+
+	return &pb.CreateUserResponse{
+		User: userToProto(u),
+	}, nil
+}
+
+// GetUserByEmail — ищет пользователя по email
+func (s *Server) GetUserByEmail(
+	ctx context.Context,
+	req *pb.GetUserByEmailRequest,
+) (*pb.GetUserByEmailResponse, error) {
+
+	u, err := s.userRepo.FindByEmail(req.Email)
+	if err != nil {
+		return nil, status.Error(codes.NotFound, "user not found")
+	}
+
+	return &pb.GetUserByEmailResponse{
+		User: userToProto(u),
+	}, nil
+}
+
+// userToProto конвертирует User модель в protobuf
+func userToProto(u *repository.User) *pb.User {
+	return &pb.User{
+		Id:           u.ID,
+		Email:        u.Email,
+		PasswordHash: u.PasswordHash,
+		Name:         u.Name,
+		CreatedAt:    u.CreatedAt.Format(time.RFC3339),
+	}
+}
