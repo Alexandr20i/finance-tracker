@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v7.34.1
-// source: proto/report.proto
+// source: report.proto
 
 package report
 
@@ -32,7 +32,7 @@ type SummaryRequest struct {
 
 func (x *SummaryRequest) Reset() {
 	*x = SummaryRequest{}
-	mi := &file_proto_report_proto_msgTypes[0]
+	mi := &file_report_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *SummaryRequest) String() string {
 func (*SummaryRequest) ProtoMessage() {}
 
 func (x *SummaryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[0]
+	mi := &file_report_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *SummaryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SummaryRequest.ProtoReflect.Descriptor instead.
 func (*SummaryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{0}
+	return file_report_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *SummaryRequest) GetUserId() int64 {
@@ -94,7 +94,7 @@ type SummaryResponse struct {
 
 func (x *SummaryResponse) Reset() {
 	*x = SummaryResponse{}
-	mi := &file_proto_report_proto_msgTypes[1]
+	mi := &file_report_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -106,7 +106,7 @@ func (x *SummaryResponse) String() string {
 func (*SummaryResponse) ProtoMessage() {}
 
 func (x *SummaryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[1]
+	mi := &file_report_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -119,7 +119,7 @@ func (x *SummaryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SummaryResponse.ProtoReflect.Descriptor instead.
 func (*SummaryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{1}
+	return file_report_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SummaryResponse) GetTotalIncome() float64 {
@@ -168,7 +168,7 @@ type CategoryBreakdownRequest struct {
 
 func (x *CategoryBreakdownRequest) Reset() {
 	*x = CategoryBreakdownRequest{}
-	mi := &file_proto_report_proto_msgTypes[2]
+	mi := &file_report_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -180,7 +180,7 @@ func (x *CategoryBreakdownRequest) String() string {
 func (*CategoryBreakdownRequest) ProtoMessage() {}
 
 func (x *CategoryBreakdownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[2]
+	mi := &file_report_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -193,7 +193,7 @@ func (x *CategoryBreakdownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoryBreakdownRequest.ProtoReflect.Descriptor instead.
 func (*CategoryBreakdownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{2}
+	return file_report_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CategoryBreakdownRequest) GetUserId() int64 {
@@ -229,7 +229,7 @@ type CategoryItem struct {
 
 func (x *CategoryItem) Reset() {
 	*x = CategoryItem{}
-	mi := &file_proto_report_proto_msgTypes[3]
+	mi := &file_report_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -241,7 +241,7 @@ func (x *CategoryItem) String() string {
 func (*CategoryItem) ProtoMessage() {}
 
 func (x *CategoryItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[3]
+	mi := &file_report_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -254,7 +254,7 @@ func (x *CategoryItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoryItem.ProtoReflect.Descriptor instead.
 func (*CategoryItem) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{3}
+	return file_report_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CategoryItem) GetCategory() string {
@@ -294,7 +294,7 @@ type CategoryBreakdownResponse struct {
 
 func (x *CategoryBreakdownResponse) Reset() {
 	*x = CategoryBreakdownResponse{}
-	mi := &file_proto_report_proto_msgTypes[4]
+	mi := &file_report_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -306,7 +306,7 @@ func (x *CategoryBreakdownResponse) String() string {
 func (*CategoryBreakdownResponse) ProtoMessage() {}
 
 func (x *CategoryBreakdownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[4]
+	mi := &file_report_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -319,7 +319,7 @@ func (x *CategoryBreakdownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoryBreakdownResponse.ProtoReflect.Descriptor instead.
 func (*CategoryBreakdownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{4}
+	return file_report_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CategoryBreakdownResponse) GetCategories() []*CategoryItem {
@@ -339,7 +339,7 @@ type MonthlyTrendRequest struct {
 
 func (x *MonthlyTrendRequest) Reset() {
 	*x = MonthlyTrendRequest{}
-	mi := &file_proto_report_proto_msgTypes[5]
+	mi := &file_report_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -351,7 +351,7 @@ func (x *MonthlyTrendRequest) String() string {
 func (*MonthlyTrendRequest) ProtoMessage() {}
 
 func (x *MonthlyTrendRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[5]
+	mi := &file_report_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -364,7 +364,7 @@ func (x *MonthlyTrendRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MonthlyTrendRequest.ProtoReflect.Descriptor instead.
 func (*MonthlyTrendRequest) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{5}
+	return file_report_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *MonthlyTrendRequest) GetUserId() int64 {
@@ -393,7 +393,7 @@ type MonthlyPoint struct {
 
 func (x *MonthlyPoint) Reset() {
 	*x = MonthlyPoint{}
-	mi := &file_proto_report_proto_msgTypes[6]
+	mi := &file_report_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -405,7 +405,7 @@ func (x *MonthlyPoint) String() string {
 func (*MonthlyPoint) ProtoMessage() {}
 
 func (x *MonthlyPoint) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[6]
+	mi := &file_report_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -418,7 +418,7 @@ func (x *MonthlyPoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MonthlyPoint.ProtoReflect.Descriptor instead.
 func (*MonthlyPoint) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{6}
+	return file_report_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *MonthlyPoint) GetMonth() string {
@@ -458,7 +458,7 @@ type MonthlyTrendResponse struct {
 
 func (x *MonthlyTrendResponse) Reset() {
 	*x = MonthlyTrendResponse{}
-	mi := &file_proto_report_proto_msgTypes[7]
+	mi := &file_report_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -470,7 +470,7 @@ func (x *MonthlyTrendResponse) String() string {
 func (*MonthlyTrendResponse) ProtoMessage() {}
 
 func (x *MonthlyTrendResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[7]
+	mi := &file_report_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -483,7 +483,7 @@ func (x *MonthlyTrendResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MonthlyTrendResponse.ProtoReflect.Descriptor instead.
 func (*MonthlyTrendResponse) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{7}
+	return file_report_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *MonthlyTrendResponse) GetPoints() []*MonthlyPoint {
@@ -502,7 +502,7 @@ type ForecastRequest struct {
 
 func (x *ForecastRequest) Reset() {
 	*x = ForecastRequest{}
-	mi := &file_proto_report_proto_msgTypes[8]
+	mi := &file_report_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -514,7 +514,7 @@ func (x *ForecastRequest) String() string {
 func (*ForecastRequest) ProtoMessage() {}
 
 func (x *ForecastRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[8]
+	mi := &file_report_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -527,7 +527,7 @@ func (x *ForecastRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForecastRequest.ProtoReflect.Descriptor instead.
 func (*ForecastRequest) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{8}
+	return file_report_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ForecastRequest) GetUserId() int64 {
@@ -548,7 +548,7 @@ type ForecastItem struct {
 
 func (x *ForecastItem) Reset() {
 	*x = ForecastItem{}
-	mi := &file_proto_report_proto_msgTypes[9]
+	mi := &file_report_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -560,7 +560,7 @@ func (x *ForecastItem) String() string {
 func (*ForecastItem) ProtoMessage() {}
 
 func (x *ForecastItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[9]
+	mi := &file_report_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -573,7 +573,7 @@ func (x *ForecastItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForecastItem.ProtoReflect.Descriptor instead.
 func (*ForecastItem) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{9}
+	return file_report_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ForecastItem) GetCategory() string {
@@ -607,7 +607,7 @@ type ForecastResponse struct {
 
 func (x *ForecastResponse) Reset() {
 	*x = ForecastResponse{}
-	mi := &file_proto_report_proto_msgTypes[10]
+	mi := &file_report_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -619,7 +619,7 @@ func (x *ForecastResponse) String() string {
 func (*ForecastResponse) ProtoMessage() {}
 
 func (x *ForecastResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[10]
+	mi := &file_report_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -632,7 +632,7 @@ func (x *ForecastResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForecastResponse.ProtoReflect.Descriptor instead.
 func (*ForecastResponse) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{10}
+	return file_report_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ForecastResponse) GetTotalPredicted() float64 {
@@ -660,7 +660,7 @@ type DailyExpenseRequest struct {
 
 func (x *DailyExpenseRequest) Reset() {
 	*x = DailyExpenseRequest{}
-	mi := &file_proto_report_proto_msgTypes[11]
+	mi := &file_report_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -672,7 +672,7 @@ func (x *DailyExpenseRequest) String() string {
 func (*DailyExpenseRequest) ProtoMessage() {}
 
 func (x *DailyExpenseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[11]
+	mi := &file_report_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -685,7 +685,7 @@ func (x *DailyExpenseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DailyExpenseRequest.ProtoReflect.Descriptor instead.
 func (*DailyExpenseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{11}
+	return file_report_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DailyExpenseRequest) GetUserId() int64 {
@@ -719,7 +719,7 @@ type DailyPoint struct {
 
 func (x *DailyPoint) Reset() {
 	*x = DailyPoint{}
-	mi := &file_proto_report_proto_msgTypes[12]
+	mi := &file_report_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -731,7 +731,7 @@ func (x *DailyPoint) String() string {
 func (*DailyPoint) ProtoMessage() {}
 
 func (x *DailyPoint) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_report_proto_msgTypes[12]
+	mi := &file_report_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -744,7 +744,7 @@ func (x *DailyPoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DailyPoint.ProtoReflect.Descriptor instead.
 func (*DailyPoint) Descriptor() ([]byte, []int) {
-	return file_proto_report_proto_rawDescGZIP(), []int{12}
+	return file_report_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DailyPoint) GetDate() string {
@@ -761,11 +761,11 @@ func (x *DailyPoint) GetAmount() float64 {
 	return 0
 }
 
-var File_proto_report_proto protoreflect.FileDescriptor
+var File_report_proto protoreflect.FileDescriptor
 
-const file_proto_report_proto_rawDesc = "" +
+const file_report_proto_rawDesc = "" +
 	"\n" +
-	"\x12proto/report.proto\x12\x06report\"M\n" +
+	"\freport.proto\x12\x06report\"M\n" +
 	"\x0eSummaryRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x12\n" +
 	"\x04from\x18\x02 \x01(\tR\x04from\x12\x0e\n" +
@@ -828,19 +828,19 @@ const file_proto_report_proto_rawDesc = "" +
 	"\x13StreamDailyExpenses\x12\x1b.report.DailyExpenseRequest\x1a\x12.report.DailyPoint0\x01B3Z1github.com/Alexandr20i/finance-tracker/gen/reportb\x06proto3"
 
 var (
-	file_proto_report_proto_rawDescOnce sync.Once
-	file_proto_report_proto_rawDescData []byte
+	file_report_proto_rawDescOnce sync.Once
+	file_report_proto_rawDescData []byte
 )
 
-func file_proto_report_proto_rawDescGZIP() []byte {
-	file_proto_report_proto_rawDescOnce.Do(func() {
-		file_proto_report_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_report_proto_rawDesc), len(file_proto_report_proto_rawDesc)))
+func file_report_proto_rawDescGZIP() []byte {
+	file_report_proto_rawDescOnce.Do(func() {
+		file_report_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_report_proto_rawDesc), len(file_report_proto_rawDesc)))
 	})
-	return file_proto_report_proto_rawDescData
+	return file_report_proto_rawDescData
 }
 
-var file_proto_report_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
-var file_proto_report_proto_goTypes = []any{
+var file_report_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_report_proto_goTypes = []any{
 	(*SummaryRequest)(nil),            // 0: report.SummaryRequest
 	(*SummaryResponse)(nil),           // 1: report.SummaryResponse
 	(*CategoryBreakdownRequest)(nil),  // 2: report.CategoryBreakdownRequest
@@ -855,7 +855,7 @@ var file_proto_report_proto_goTypes = []any{
 	(*DailyExpenseRequest)(nil),       // 11: report.DailyExpenseRequest
 	(*DailyPoint)(nil),                // 12: report.DailyPoint
 }
-var file_proto_report_proto_depIdxs = []int32{
+var file_report_proto_depIdxs = []int32{
 	3,  // 0: report.CategoryBreakdownResponse.categories:type_name -> report.CategoryItem
 	6,  // 1: report.MonthlyTrendResponse.points:type_name -> report.MonthlyPoint
 	9,  // 2: report.ForecastResponse.by_category:type_name -> report.ForecastItem
@@ -876,26 +876,26 @@ var file_proto_report_proto_depIdxs = []int32{
 	0,  // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_proto_report_proto_init() }
-func file_proto_report_proto_init() {
-	if File_proto_report_proto != nil {
+func init() { file_report_proto_init() }
+func file_report_proto_init() {
+	if File_report_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_report_proto_rawDesc), len(file_proto_report_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_report_proto_rawDesc), len(file_report_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_report_proto_goTypes,
-		DependencyIndexes: file_proto_report_proto_depIdxs,
-		MessageInfos:      file_proto_report_proto_msgTypes,
+		GoTypes:           file_report_proto_goTypes,
+		DependencyIndexes: file_report_proto_depIdxs,
+		MessageInfos:      file_report_proto_msgTypes,
 	}.Build()
-	File_proto_report_proto = out.File
-	file_proto_report_proto_goTypes = nil
-	file_proto_report_proto_depIdxs = nil
+	File_report_proto = out.File
+	file_report_proto_goTypes = nil
+	file_report_proto_depIdxs = nil
 }

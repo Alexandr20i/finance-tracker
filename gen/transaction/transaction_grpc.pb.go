@@ -2,12 +2,13 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             v7.34.1
-// source: proto/transaction.proto
+// source: transaction.proto
 
 package transaction
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -311,5 +312,5 @@ var TransactionService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "proto/transaction.proto",
+	Metadata: "transaction.proto",
 }

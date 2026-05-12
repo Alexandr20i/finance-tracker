@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v7.34.1
-// source: proto/budget.proto
+// source: budget.proto
 
 package budget
 
@@ -54,11 +54,11 @@ func (x BudgetPeriod) String() string {
 }
 
 func (BudgetPeriod) Descriptor() protoreflect.EnumDescriptor {
-	return file_proto_budget_proto_enumTypes[0].Descriptor()
+	return file_budget_proto_enumTypes[0].Descriptor()
 }
 
 func (BudgetPeriod) Type() protoreflect.EnumType {
-	return &file_proto_budget_proto_enumTypes[0]
+	return &file_budget_proto_enumTypes[0]
 }
 
 func (x BudgetPeriod) Number() protoreflect.EnumNumber {
@@ -67,7 +67,7 @@ func (x BudgetPeriod) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BudgetPeriod.Descriptor instead.
 func (BudgetPeriod) EnumDescriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{0}
+	return file_budget_proto_rawDescGZIP(), []int{0}
 }
 
 type Budget struct {
@@ -86,7 +86,7 @@ type Budget struct {
 
 func (x *Budget) Reset() {
 	*x = Budget{}
-	mi := &file_proto_budget_proto_msgTypes[0]
+	mi := &file_budget_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -98,7 +98,7 @@ func (x *Budget) String() string {
 func (*Budget) ProtoMessage() {}
 
 func (x *Budget) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[0]
+	mi := &file_budget_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -111,7 +111,7 @@ func (x *Budget) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Budget.ProtoReflect.Descriptor instead.
 func (*Budget) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{0}
+	return file_budget_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Budget) GetId() int64 {
@@ -182,7 +182,7 @@ type CreateBudgetRequest struct {
 
 func (x *CreateBudgetRequest) Reset() {
 	*x = CreateBudgetRequest{}
-	mi := &file_proto_budget_proto_msgTypes[1]
+	mi := &file_budget_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -194,7 +194,7 @@ func (x *CreateBudgetRequest) String() string {
 func (*CreateBudgetRequest) ProtoMessage() {}
 
 func (x *CreateBudgetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[1]
+	mi := &file_budget_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,7 +207,7 @@ func (x *CreateBudgetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBudgetRequest.ProtoReflect.Descriptor instead.
 func (*CreateBudgetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{1}
+	return file_budget_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateBudgetRequest) GetUserId() int64 {
@@ -247,7 +247,7 @@ type CreateBudgetResponse struct {
 
 func (x *CreateBudgetResponse) Reset() {
 	*x = CreateBudgetResponse{}
-	mi := &file_proto_budget_proto_msgTypes[2]
+	mi := &file_budget_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -259,7 +259,7 @@ func (x *CreateBudgetResponse) String() string {
 func (*CreateBudgetResponse) ProtoMessage() {}
 
 func (x *CreateBudgetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[2]
+	mi := &file_budget_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -272,7 +272,7 @@ func (x *CreateBudgetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateBudgetResponse.ProtoReflect.Descriptor instead.
 func (*CreateBudgetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{2}
+	return file_budget_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateBudgetResponse) GetBudget() *Budget {
@@ -292,7 +292,7 @@ type GetBudgetRequest struct {
 
 func (x *GetBudgetRequest) Reset() {
 	*x = GetBudgetRequest{}
-	mi := &file_proto_budget_proto_msgTypes[3]
+	mi := &file_budget_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -304,7 +304,7 @@ func (x *GetBudgetRequest) String() string {
 func (*GetBudgetRequest) ProtoMessage() {}
 
 func (x *GetBudgetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[3]
+	mi := &file_budget_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -317,7 +317,7 @@ func (x *GetBudgetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBudgetRequest.ProtoReflect.Descriptor instead.
 func (*GetBudgetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{3}
+	return file_budget_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetBudgetRequest) GetId() int64 {
@@ -343,7 +343,7 @@ type ListBudgetsRequest struct {
 
 func (x *ListBudgetsRequest) Reset() {
 	*x = ListBudgetsRequest{}
-	mi := &file_proto_budget_proto_msgTypes[4]
+	mi := &file_budget_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -355,7 +355,7 @@ func (x *ListBudgetsRequest) String() string {
 func (*ListBudgetsRequest) ProtoMessage() {}
 
 func (x *ListBudgetsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[4]
+	mi := &file_budget_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -368,7 +368,7 @@ func (x *ListBudgetsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBudgetsRequest.ProtoReflect.Descriptor instead.
 func (*ListBudgetsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{4}
+	return file_budget_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListBudgetsRequest) GetUserId() int64 {
@@ -387,7 +387,7 @@ type ListBudgetsResponse struct {
 
 func (x *ListBudgetsResponse) Reset() {
 	*x = ListBudgetsResponse{}
-	mi := &file_proto_budget_proto_msgTypes[5]
+	mi := &file_budget_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -399,7 +399,7 @@ func (x *ListBudgetsResponse) String() string {
 func (*ListBudgetsResponse) ProtoMessage() {}
 
 func (x *ListBudgetsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[5]
+	mi := &file_budget_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -412,7 +412,7 @@ func (x *ListBudgetsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListBudgetsResponse.ProtoReflect.Descriptor instead.
 func (*ListBudgetsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{5}
+	return file_budget_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListBudgetsResponse) GetBudgets() []*Budget {
@@ -433,7 +433,7 @@ type UpdateBudgetRequest struct {
 
 func (x *UpdateBudgetRequest) Reset() {
 	*x = UpdateBudgetRequest{}
-	mi := &file_proto_budget_proto_msgTypes[6]
+	mi := &file_budget_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -445,7 +445,7 @@ func (x *UpdateBudgetRequest) String() string {
 func (*UpdateBudgetRequest) ProtoMessage() {}
 
 func (x *UpdateBudgetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[6]
+	mi := &file_budget_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -458,7 +458,7 @@ func (x *UpdateBudgetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateBudgetRequest.ProtoReflect.Descriptor instead.
 func (*UpdateBudgetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{6}
+	return file_budget_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UpdateBudgetRequest) GetId() int64 {
@@ -491,7 +491,7 @@ type UpdateBudgetResponse struct {
 
 func (x *UpdateBudgetResponse) Reset() {
 	*x = UpdateBudgetResponse{}
-	mi := &file_proto_budget_proto_msgTypes[7]
+	mi := &file_budget_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -503,7 +503,7 @@ func (x *UpdateBudgetResponse) String() string {
 func (*UpdateBudgetResponse) ProtoMessage() {}
 
 func (x *UpdateBudgetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[7]
+	mi := &file_budget_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -516,7 +516,7 @@ func (x *UpdateBudgetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateBudgetResponse.ProtoReflect.Descriptor instead.
 func (*UpdateBudgetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{7}
+	return file_budget_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateBudgetResponse) GetBudget() *Budget {
@@ -536,7 +536,7 @@ type DeleteBudgetRequest struct {
 
 func (x *DeleteBudgetRequest) Reset() {
 	*x = DeleteBudgetRequest{}
-	mi := &file_proto_budget_proto_msgTypes[8]
+	mi := &file_budget_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -548,7 +548,7 @@ func (x *DeleteBudgetRequest) String() string {
 func (*DeleteBudgetRequest) ProtoMessage() {}
 
 func (x *DeleteBudgetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[8]
+	mi := &file_budget_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -561,7 +561,7 @@ func (x *DeleteBudgetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBudgetRequest.ProtoReflect.Descriptor instead.
 func (*DeleteBudgetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{8}
+	return file_budget_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *DeleteBudgetRequest) GetId() int64 {
@@ -587,7 +587,7 @@ type DeleteBudgetResponse struct {
 
 func (x *DeleteBudgetResponse) Reset() {
 	*x = DeleteBudgetResponse{}
-	mi := &file_proto_budget_proto_msgTypes[9]
+	mi := &file_budget_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -599,7 +599,7 @@ func (x *DeleteBudgetResponse) String() string {
 func (*DeleteBudgetResponse) ProtoMessage() {}
 
 func (x *DeleteBudgetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[9]
+	mi := &file_budget_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -612,7 +612,7 @@ func (x *DeleteBudgetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteBudgetResponse.ProtoReflect.Descriptor instead.
 func (*DeleteBudgetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{9}
+	return file_budget_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteBudgetResponse) GetSuccess() bool {
@@ -633,7 +633,7 @@ type CheckBudgetRequest struct {
 
 func (x *CheckBudgetRequest) Reset() {
 	*x = CheckBudgetRequest{}
-	mi := &file_proto_budget_proto_msgTypes[10]
+	mi := &file_budget_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -645,7 +645,7 @@ func (x *CheckBudgetRequest) String() string {
 func (*CheckBudgetRequest) ProtoMessage() {}
 
 func (x *CheckBudgetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[10]
+	mi := &file_budget_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -658,7 +658,7 @@ func (x *CheckBudgetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckBudgetRequest.ProtoReflect.Descriptor instead.
 func (*CheckBudgetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{10}
+	return file_budget_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CheckBudgetRequest) GetUserId() int64 {
@@ -695,7 +695,7 @@ type CheckBudgetResponse struct {
 
 func (x *CheckBudgetResponse) Reset() {
 	*x = CheckBudgetResponse{}
-	mi := &file_proto_budget_proto_msgTypes[11]
+	mi := &file_budget_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -707,7 +707,7 @@ func (x *CheckBudgetResponse) String() string {
 func (*CheckBudgetResponse) ProtoMessage() {}
 
 func (x *CheckBudgetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[11]
+	mi := &file_budget_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -720,7 +720,7 @@ func (x *CheckBudgetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckBudgetResponse.ProtoReflect.Descriptor instead.
 func (*CheckBudgetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{11}
+	return file_budget_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CheckBudgetResponse) GetIsExceeded() bool {
@@ -771,7 +771,7 @@ type BudgetAlert struct {
 
 func (x *BudgetAlert) Reset() {
 	*x = BudgetAlert{}
-	mi := &file_proto_budget_proto_msgTypes[12]
+	mi := &file_budget_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -783,7 +783,7 @@ func (x *BudgetAlert) String() string {
 func (*BudgetAlert) ProtoMessage() {}
 
 func (x *BudgetAlert) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_budget_proto_msgTypes[12]
+	mi := &file_budget_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -796,7 +796,7 @@ func (x *BudgetAlert) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BudgetAlert.ProtoReflect.Descriptor instead.
 func (*BudgetAlert) Descriptor() ([]byte, []int) {
-	return file_proto_budget_proto_rawDescGZIP(), []int{12}
+	return file_budget_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *BudgetAlert) GetUserId() int64 {
@@ -834,11 +834,11 @@ func (x *BudgetAlert) GetMessage() string {
 	return ""
 }
 
-var File_proto_budget_proto protoreflect.FileDescriptor
+var File_budget_proto protoreflect.FileDescriptor
 
-const file_proto_budget_proto_rawDesc = "" +
+const file_budget_proto_rawDesc = "" +
 	"\n" +
-	"\x12proto/budget.proto\x12\x06budget\"\x82\x02\n" +
+	"\fbudget.proto\x12\x06budget\"\x82\x02\n" +
 	"\x06Budget\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x1a\n" +
@@ -914,20 +914,20 @@ const file_proto_budget_proto_rawDesc = "" +
 	"\x11WatchBudgetAlerts\x12\x1a.budget.CheckBudgetRequest\x1a\x13.budget.BudgetAlert(\x010\x01B3Z1github.com/Alexandr20i/finance-tracker/gen/budgetb\x06proto3"
 
 var (
-	file_proto_budget_proto_rawDescOnce sync.Once
-	file_proto_budget_proto_rawDescData []byte
+	file_budget_proto_rawDescOnce sync.Once
+	file_budget_proto_rawDescData []byte
 )
 
-func file_proto_budget_proto_rawDescGZIP() []byte {
-	file_proto_budget_proto_rawDescOnce.Do(func() {
-		file_proto_budget_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_budget_proto_rawDesc), len(file_proto_budget_proto_rawDesc)))
+func file_budget_proto_rawDescGZIP() []byte {
+	file_budget_proto_rawDescOnce.Do(func() {
+		file_budget_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_budget_proto_rawDesc), len(file_budget_proto_rawDesc)))
 	})
-	return file_proto_budget_proto_rawDescData
+	return file_budget_proto_rawDescData
 }
 
-var file_proto_budget_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_proto_budget_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
-var file_proto_budget_proto_goTypes = []any{
+var file_budget_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_budget_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_budget_proto_goTypes = []any{
 	(BudgetPeriod)(0),            // 0: budget.BudgetPeriod
 	(*Budget)(nil),               // 1: budget.Budget
 	(*CreateBudgetRequest)(nil),  // 2: budget.CreateBudgetRequest
@@ -943,7 +943,7 @@ var file_proto_budget_proto_goTypes = []any{
 	(*CheckBudgetResponse)(nil),  // 12: budget.CheckBudgetResponse
 	(*BudgetAlert)(nil),          // 13: budget.BudgetAlert
 }
-var file_proto_budget_proto_depIdxs = []int32{
+var file_budget_proto_depIdxs = []int32{
 	0,  // 0: budget.Budget.period:type_name -> budget.BudgetPeriod
 	0,  // 1: budget.CreateBudgetRequest.period:type_name -> budget.BudgetPeriod
 	1,  // 2: budget.CreateBudgetResponse.budget:type_name -> budget.Budget
@@ -970,27 +970,27 @@ var file_proto_budget_proto_depIdxs = []int32{
 	0,  // [0:5] is the sub-list for field type_name
 }
 
-func init() { file_proto_budget_proto_init() }
-func file_proto_budget_proto_init() {
-	if File_proto_budget_proto != nil {
+func init() { file_budget_proto_init() }
+func file_budget_proto_init() {
+	if File_budget_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_budget_proto_rawDesc), len(file_proto_budget_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_budget_proto_rawDesc), len(file_budget_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_budget_proto_goTypes,
-		DependencyIndexes: file_proto_budget_proto_depIdxs,
-		EnumInfos:         file_proto_budget_proto_enumTypes,
-		MessageInfos:      file_proto_budget_proto_msgTypes,
+		GoTypes:           file_budget_proto_goTypes,
+		DependencyIndexes: file_budget_proto_depIdxs,
+		EnumInfos:         file_budget_proto_enumTypes,
+		MessageInfos:      file_budget_proto_msgTypes,
 	}.Build()
-	File_proto_budget_proto = out.File
-	file_proto_budget_proto_goTypes = nil
-	file_proto_budget_proto_depIdxs = nil
+	File_budget_proto = out.File
+	file_budget_proto_goTypes = nil
+	file_budget_proto_depIdxs = nil
 }
