@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package budget;
+
+option go_package = "github.com/Alexandr20i/finance-tracker/gen/budget";
+
+enum BudgetPeriod {
+  MONTHLY = 0;
+  WEEKLY  = 1;
+  YEARLY  = 2;
+}
+
+message Budget {
+  int64        id           = 1;
+  int64        user_id      = 2;
+  string       category     = 3;
+  double       limit_amount = 4;
+  double       spent_amount = 5;
+  BudgetPeriod period       = 6;
+  bool         is_exceeded  = 7;
+  double       percentage   = 8;
+}
+
+message CreateBudgetRequest {
+  int64        user_id      = 1;
+  string       category     = 2;
+  double       limit_amount = 3;
+  BudgetPeriod period       = 4;
+}
+
+message CreateBudgetResponse {
+  Budget budget = 1;
+}
+
+message GetBudgetRequest {
+  int64 id      = 1;
+  int64 user_id = 2;
+}
+
+message ListBudgetsRequest {
+  int64 user_id = 1;
+}
+
+message ListBudgetsResponse {
+  repeated Budget budgets = 1;
+}
+
+message UpdateBudgetRequest {
+  int64  id           = 1;
+  int64  user_id      = 2;
+  double limit_amount = 3;
+}
+
+message UpdateBudgetResponse {
+  Budget budget = 1;
+}
+
+message DeleteBudgetRequest {
+  int64 id      = 1;
+  int64 user_id = 2;
+}
+
+message DeleteBudgetResponse {
+  bool success = 1;
+}
+
+message CheckBudgetRequest {
+  int64  user_id  = 1;
+  string category = 2;
+  double amount   = 3;
+}
+
+message CheckBudgetResponse {
+  bool   is_exceeded = 1;
+  bool   is_warning  = 2;
+  double spent       = 3;
+  double limit       = 4;
+  double percentage  = 5;
+}
+
+message BudgetAlert {
+  int64  user_id    = 1;
+  string category   = 2;
+  double percentage = 3;
+  bool   exceeded   = 4;
+  string message    = 5;
+}
+
+service BudgetService {
+  rpc CreateBudget(CreateBudgetRequest)           returns (CreateBudgetResponse);
+  rpc GetBudget(GetBudgetRequest)                 returns (Budget);
+  rpc ListBudgets(ListBudgetsRequest)             returns (ListBudgetsResponse);
+  rpc UpdateBudget(UpdateBudgetRequest)           returns (UpdateBudgetResponse);
+  rpc DeleteBudget(DeleteBudgetRequest)           returns (DeleteBudgetResponse);
+  rpc CheckAndUpdateBudget(CheckBudgetRequest)    returns (CheckBudgetResponse);
+  rpc WatchBudgetAlerts(stream CheckBudgetRequest) returns (stream BudgetAlert);
+}

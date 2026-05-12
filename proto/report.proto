@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package report;
+
+option go_package = "github.com/Alexandr20i/finance-tracker/gen/report";
+
+message SummaryRequest {
+  int64  user_id = 1;
+  string from    = 2;
+  string to      = 3;
+}
+
+message SummaryResponse {
+  double total_income      = 1;
+  double total_expense     = 2;
+  double balance           = 3;
+  int32  transaction_count = 4;
+  double avg_daily_expense = 5;
+}
+
+message CategoryBreakdownRequest {
+  int64  user_id = 1;
+  string from    = 2;
+  string to      = 3;
+}
+
+message CategoryItem {
+  string category   = 1;
+  double amount     = 2;
+  double percentage = 3;
+  int32  count      = 4;
+}
+
+message CategoryBreakdownResponse {
+  repeated CategoryItem categories = 1;
+}
+
+message MonthlyTrendRequest {
+  int64 user_id = 1;
+  int32 months  = 2;
+}
+
+message MonthlyPoint {
+  string month   = 1;
+  double income  = 2;
+  double expense = 3;
+  double balance = 4;
+}
+
+message MonthlyTrendResponse {
+  repeated MonthlyPoint points = 1;
+}
+
+message ForecastRequest {
+  int64 user_id = 1;
+}
+
+message ForecastItem {
+  string category         = 1;
+  double predicted_amount = 2;
+  double avg_last_3months = 3;
+}
+
+message ForecastResponse {
+  double               total_predicted = 1;
+  repeated ForecastItem by_category    = 2;
+}
+
+message DailyExpenseRequest {
+  int64  user_id = 1;
+  string from    = 2;
+  string to      = 3;
+}
+
+message DailyPoint {
+  string date   = 1;
+  double amount = 2;
+}
+
+service ReportService {
+  rpc GetSummary(SummaryRequest)                     returns (SummaryResponse);
+  rpc GetCategoryBreakdown(CategoryBreakdownRequest) returns (CategoryBreakdownResponse);
+  rpc GetMonthlyTrend(MonthlyTrendRequest)           returns (MonthlyTrendResponse);
+  rpc GetForecast(ForecastRequest)                   returns (ForecastResponse);
+  rpc StreamDailyExpenses(DailyExpenseRequest)       returns (stream DailyPoint);
+}

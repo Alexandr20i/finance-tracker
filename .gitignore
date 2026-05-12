@@ -1,0 +1,13 @@
+.env
+.env.docker
+.env.*
+.DS_Store
+*.log
+*.tmp
+*.swp
+.vscode/
+.idea/
+*.exe
+*.test
+/dist/
+/bin/
