@@ -5,6 +5,8 @@ import (
 	"log/slog"
 	"net"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -16,6 +18,7 @@ import (
 	grpcServer "github.com/Alexandr20i/finance-tracker/services/transaction/grpc"
 	"github.com/Alexandr20i/finance-tracker/services/transaction/repository"
 	"github.com/Alexandr20i/finance-tracker/shared/config"
+	"github.com/Alexandr20i/finance-tracker/shared/interceptor"
 )
 
 func main() {
@@ -49,7 +52,15 @@ func main() {
 
 	// Создаём gRPC сервер
 	// grpc.NewServer() — как chi.NewRouter() но для gRPC
-	s := grpc.NewServer()
+	// s := grpc.NewServer()
+
+	s := grpc.NewServer(
+		grpc.ChainUnaryInterceptor(
+			interceptor.Recovery, // сначала recover — чтобы поймать панику из logger
+			interceptor.Logger,
+		),
+		grpc.StreamInterceptor(interceptor.StreamLogger),
+	)
 
 	// Регистрируем нашу реализацию
 	pb.RegisterTransactionServiceServer(s, grpcServer.NewServer(txRepo, userRepo))
@@ -58,10 +69,29 @@ func main() {
 	// какие методы есть у сервера — удобно для отладки
 	reflection.Register(s)
 
-	slog.Info("transaction service started", "port", cfg.GRPC.Port)
+	// slog.Info("transaction service started", "port", cfg.GRPC.Port)
 
-	// Запускаем сервер — блокирующий вызов
-	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
-	}
+	// // Запускаем сервер — блокирующий вызов
+	// if err := s.Serve(lis); err != nil {
+	// 	log.Fatalf("failed to serve: %v", err)
+	// }
+
+	// Запускаем gRPC сервер в горутине
+	go func() {
+		slog.Info("transaction service started", "port", cfg.GRPC.Port)
+		if err := s.Serve(lis); err != nil {
+			slog.Error("server error", "error", err)
+			os.Exit(1)
+		}
+	}()
+
+	// Ждём сигнал
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+
+	slog.Info("shutting down...")
+	s.GracefulStop() // gRPC аналог http.Server.Shutdown()
+	slog.Info("stopped")
+
 }

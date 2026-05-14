@@ -1,0 +1,111 @@
+services:
+
+  # ─── Базы данных ───────────────────────────────────────────
+
+  postgres_tx:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: finance_transaction
+    volumes:
+      - postgres_tx_data:/var/lib/postgresql/data
+      - ./services/transaction/migrations/001_init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres_bud:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: finance_budget
+    volumes:
+      - postgres_bud_data:/var/lib/postgresql/data
+      - ./services/budget/migrations/001_init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ─── Сервисы ───────────────────────────────────────────────
+
+  transaction:
+    build:
+      context: .
+      dockerfile: services/transaction/Dockerfile
+    environment:
+      GRPC_PORT: "50051"
+      DB_HOST: postgres_tx        # имя контейнера = хост внутри Docker сети
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: finance_transaction
+      DB_SSLMODE: disable
+    ports:
+      - "50051:50051"
+    depends_on:
+      postgres_tx:
+        condition: service_healthy  # ждём пока БД готова
+
+  budget:
+    build:
+      context: .
+      dockerfile: services/budget/Dockerfile
+    environment:
+      GRPC_PORT: "50052"
+      DB_HOST: postgres_bud
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: finance_budget
+      DB_SSLMODE: disable
+    ports:
+      - "50052:50052"
+    depends_on:
+      postgres_bud:
+        condition: service_healthy
+
+  report:
+    build:
+      context: .
+      dockerfile: services/report/Dockerfile
+    environment:
+      GRPC_PORT: "50053"
+      TRANSACTION_ADDR: transaction:50051   # имя сервиса:порт внутри Docker
+    depends_on:
+      - transaction
+
+  gateway:
+    build:
+      context: .
+      dockerfile: services/gateway/Dockerfile
+    environment:
+      SERVER_PORT: "8080"
+      JWT_SECRET: super-secret-key-change-in-production
+      JWT_EXPIRATION_HOURS: "24"
+      TRANSACTION_ADDR: transaction:50051
+      BUDGET_ADDR: budget:50052
+      REPORT_ADDR: report:50053
+    ports:
+      - "8080:8080"
+    depends_on:
+      - transaction
+      - budget
+      - report
+
+volumes:
+  postgres_tx_data:
+  postgres_bud_data:

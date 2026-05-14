@@ -12,10 +12,15 @@ import (
 
 // Analytics — считает отчёты на основе данных из Transaction Service
 type Analytics struct {
-	txClient *client.TransactionClient
+	// txClient *client.TransactionClient
+	txClient client.TransactionClientInterface
 }
 
-func NewAnalytics(txClient *client.TransactionClient) *Analytics {
+// func NewAnalytics(txClient *client.TransactionClient) *Analytics {
+// 	return &Analytics{txClient: txClient}
+// }
+
+func NewAnalytics(txClient client.TransactionClientInterface) *Analytics {
 	return &Analytics{txClient: txClient}
 }
 
