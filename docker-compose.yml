@@ -85,8 +85,11 @@ services:
     environment:
       GRPC_PORT: "50053"
       TRANSACTION_ADDR: transaction:50051   # имя сервиса:порт внутри Docker
+      REDIS_ADDR: redis:6379
+
     depends_on:
       - transaction
+      - redis
 
   gateway:
     build:

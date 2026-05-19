@@ -13,6 +13,7 @@ import (
 
 	pb "github.com/Alexandr20i/finance-tracker/gen/report"
 	"github.com/Alexandr20i/finance-tracker/services/report/analytics"
+	"github.com/Alexandr20i/finance-tracker/services/report/cache"
 	"github.com/Alexandr20i/finance-tracker/services/report/client"
 	grpcServer "github.com/Alexandr20i/finance-tracker/services/report/grpc"
 	"github.com/Alexandr20i/finance-tracker/shared/config"
@@ -35,7 +36,18 @@ func main() {
 	slog.Info("connected to transaction service", "addr", cfg.GRPC.TransactionAddr)
 
 	// Создаём аналитику
-	a := analytics.NewAnalytics(txClient)
+	redisAddr := os.Getenv("REDIS_ADDR")
+	if redisAddr == "" {
+		redisAddr = "localhost:6379"
+	}
+
+	c, err := cache.New(redisAddr)
+	if err != nil {
+		slog.Warn("redis not available, running without cache", "error", err)
+		// Не падаем — работаем без кэша
+	}
+
+	a := analytics.NewAnalytics(txClient, c)
 
 	port := os.Getenv("GRPC_PORT")
 	if port == "" {

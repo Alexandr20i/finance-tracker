@@ -2,11 +2,16 @@ package analytics
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"log/slog"
 	"sort"
 	"time"
 
+	"github.com/redis/go-redis/v9"
+
 	pb "github.com/Alexandr20i/finance-tracker/gen/transaction"
+	"github.com/Alexandr20i/finance-tracker/services/report/cache"
 	"github.com/Alexandr20i/finance-tracker/services/report/client"
 )
 
@@ -14,56 +19,75 @@ import (
 type Analytics struct {
 	// txClient *client.TransactionClient
 	txClient client.TransactionClientInterface
+	cache    *cache.Cache
 }
 
-// func NewAnalytics(txClient *client.TransactionClient) *Analytics {
-// 	return &Analytics{txClient: txClient}
-// }
-
-func NewAnalytics(txClient client.TransactionClientInterface) *Analytics {
-	return &Analytics{txClient: txClient}
+func NewAnalytics(txClient client.TransactionClientInterface, c *cache.Cache) *Analytics {
+	return &Analytics{txClient: txClient, cache: c}
 }
 
 // Summary — сводка за период
 func (a *Analytics) Summary(ctx context.Context, userID int64, from, to string) (*SummaryResult, error) {
+	cacheKey := fmt.Sprintf("summary:%d:%s:%s", userID, from, to)
+
+	// Пробуем достать из кэша
+	var cached SummaryResult
+	if err := a.cache.Get(ctx, cacheKey, &cached); err == nil {
+		slog.Info("cache hit", "key", cacheKey)
+		return &cached, nil
+	} else if !errors.Is(err, redis.Nil) {
+		slog.Warn("cache error", "error", err)
+	}
+
+	// Кэш miss — считаем
+	slog.Info("cache miss", "key", cacheKey)
+
 	balance, err := a.txClient.GetBalance(ctx, userID, from, to)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get balance: %w", err)
 	}
 
-	// Получаем транзакции чтобы посчитать количество и среднее
 	transactions, err := a.txClient.ListAllTransactions(ctx, userID, from, to)
 	if err != nil {
 		return nil, fmt.Errorf("failed to list transactions: %w", err)
 	}
 
-	// Считаем количество дней в периоде для среднедневного расхода
 	days := 30.0
 	if from != "" && to != "" {
 		fromDate, _ := time.Parse("2006-01-02", from)
 		toDate, _ := time.Parse("2006-01-02", to)
-		days = toDate.Sub(fromDate).Hours() / 24
-		if days < 1 {
-			days = 1
+		d := toDate.Sub(fromDate).Hours() / 24
+		if d >= 1 {
+			days = d
 		}
 	}
 
-	avgDaily := 0.0
-	if days > 0 {
-		avgDaily = balance.TotalExpense / days
-	}
-
-	return &SummaryResult{
+	result := &SummaryResult{
 		TotalIncome:      balance.TotalIncome,
 		TotalExpense:     balance.TotalExpense,
 		Balance:          balance.Balance,
 		TransactionCount: int32(len(transactions)),
-		AvgDailyExpense:  avgDaily,
-	}, nil
+		AvgDailyExpense:  balance.TotalExpense / days,
+	}
+
+	// Кэшируем на 5 минут
+	if err := a.cache.Set(ctx, cacheKey, result, 5*time.Minute); err != nil {
+		slog.Warn("failed to cache summary", "error", err)
+	}
+
+	return result, nil
 }
 
 // CategoryBreakdown — расходы по категориям
 func (a *Analytics) CategoryBreakdown(ctx context.Context, userID int64, from, to string) ([]CategoryItem, error) {
+	cacheKey := fmt.Sprintf("breakdown:%d:%s:%s", userID, from, to)
+
+	var cached []CategoryItem
+	if err := a.cache.Get(ctx, cacheKey, &cached); err == nil {
+		slog.Info("cache hit", "key", cacheKey)
+		return cached, nil
+	}
+
 	totals, err := a.txClient.GetCategoryTotals(ctx, userID, from, to)
 	if err != nil {
 		return nil, err
@@ -78,6 +102,11 @@ func (a *Analytics) CategoryBreakdown(ctx context.Context, userID int64, from, t
 			Count:      t.Count,
 		})
 	}
+
+	if err := a.cache.Set(ctx, cacheKey, items, 5*time.Minute); err != nil {
+		slog.Warn("failed to cache breakdown", "error", err)
+	}
+
 	return items, nil
 }
 
